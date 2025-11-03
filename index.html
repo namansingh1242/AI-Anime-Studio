@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Anime Studio — Generate Anime Scenes</title>
+  <meta name="description" content="AI Anime Studio — Create anime scenes and voices from text. Demo version (frontend-only).">
+  <link rel="canonical" href="https://ai-anime-studio.vercel.app/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI Anime Studio" />
+  <meta property="og:description" content="Create anime scenes and voices from text. Demo (frontend) — try it now!" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:url" content="https://ai-anime-studio.vercel.app" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="logo">AI <span>ANIME</span> STUDIO</div>
+      <nav><a href="#" id="aboutBtn">About</a></nav>
+    </header>
+
+    <main class="hero">
+      <section class="panel left">
+        <h1>Create anime scenes with AI</h1>
+        <p class="lead">Type a short prompt, press <b>Generate</b> — frontend demo will fetch an anime-style image and read your prompt aloud.</p>
+
+        <label class="lbl">Describe your scene</label>
+        <textarea id="prompt" placeholder="e.g. A moody cyberpunk rooftop at night, neon lights, lone swordsman"></textarea>
+
+        <div class="controls">
+          <select id="styleSelect">
+            <option value="anime">Anime Cinematic</option>
+            <option value="vaporwave">Vaporwave</option>
+            <option value="fantasy">Fantasy</option>
+          </select>
+          <button id="generateBtn" class="btn">Generate</button>
+          <button id="speakBtn" class="btn ghost">Listen</button>
+        </div>
+
+        <div class="notes">
+          <small>Demo fetches images from public image provider (Unsplash) — for production connect your backend AI pipeline.</small>
+        </div>
+      </section>
+
+      <section class="panel right">
+        <div class="preview">
+          <div class="preview-inner">
+            <img id="resultImg" src="https://via.placeholder.com/720x400?text=AI+Anime+Studio" alt="generated preview">
+            <div id="imgLabel" class="img-label">Your generated scene will appear here</div>
+          </div>
+        </div>
+
+        <div class="scene-data" id="sceneData" hidden>
+          <h3>Scene</h3>
+          <pre id="sceneJson">{}</pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div>Made with ❤️ — AI Anime Studio (Demo)</div>
+      <div class="links">
+        <a href="https://github.com/YOUR-USERNAME/AI-Anime-Studio" target="_blank">GitHub</a>
+      </div>
+    </footer>
+  </div>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-body">
+      <h2>About AI Anime Studio</h2>
+      <p>This is a frontend demo of the AI Anime Studio UI. Replace the demo image fetch with your backend API to enable full AI generation (OpenAI/Replicate/ElevenLabs).</p>
+      <button id="closeModal" class="btn">Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+  </html>
+  
